@@ -1,12 +1,16 @@
-# Image to WebP Converter
+This is a fork of image_to_web, I figured out the changes I wanted to make to it changed the focus too much.
 
-A Python script to convert images (JPG, PNG, GIF) to WebP format, with support for batch processing and optional deletion of original files.
+# Web Media Optimizer
+
+A Python script that converts image files (JPG, JPEG, PNG, GIF) to WebP format and video files (MP4, AVI, MOV, MKV) to WebM format. It supports both batch and recursive directory processing, with options to delete original files after a successful conversion and to preserve file metadata.
 
 ## Features
 
 - Converts JPG, PNG, and GIF images to WebP format.
+- Converts MP4, AVI, MOV, MKV to WebM format.
 - Supports animated GIF to WebP conversion using `ffmpeg`.
 - Recursive directory processing for batch conversions.
+- Includes optional flags to convert only images, only videos, or specific file formats.
 - Option to delete original files after successful conversion.
 - Preserves file metadata (timestamps) during conversion.
 
@@ -14,8 +18,8 @@ A Python script to convert images (JPG, PNG, GIF) to WebP format, with support f
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/image_to_webp.git
-   cd image_to_webp
+   git clone https://github.com/danelsanchez/web_media_optimizer.git
+   cd web_media_optimizer
    ```
 
 2. Install dependencies:
@@ -42,24 +46,28 @@ A Python script to convert images (JPG, PNG, GIF) to WebP format, with support f
 Run the script from the command line:
 
 ```bash
-python -m image_to_webp /path/to/images [options]
+python -m web_media_optimizer /path/to/images [options]
 ```
 
 ### Options
 
+- `-o`, `--output_dir`: Set a different output directory.
 - `-r`, `--recursive`: Process directories recursively.
 - `-d`, `--delete`: Delete original files after successful conversion.
+- `-i`, `--images`: Convert only images.
+- `-v`, `--videos`: Convert only videos.
+- `-f`, `--formats`: Convert only specified formats (e.g., jpg png mp4).
 
 ### Example
 
 Convert all images in a directory (non-recursive):
 ```bash
-python -m image_to_webp /path/to/images
+python -m web_media_optimizer /path/to/images
 ```
 
 Convert all images recursively and delete originals:
 ```bash
-python -m image_to_webp /path/to/images -r -d
+python -m web_media_optimizer /path/to/images -r -d
 ```
 
 ## License
